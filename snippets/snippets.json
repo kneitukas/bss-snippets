@@ -1,0 +1,57 @@
+{
+      "bss service": {
+        "prefix": "bss-service",
+        "description": "bss service",
+        "body": [
+          "import { Inject, Injectable } from '@angular/core';",
+          "import { HTTP_CLIENT_PROXY } from '@bss/customer-portal/shared';",
+          "import { BaseServiceProxy, HttpClientProxy, ServiceContract, OperationContract, OperationMethod, ServiceOperation } from '@bss/shared/helpers';",
+          "",
+          "@Injectable()",
+          "@ServiceContract({ uri: 'api' })",
+          "export class ${1:Name}ServiceProxy extends BaseServiceProxy {",
+          "\tconstructor(@Inject(HTTP_CLIENT_PROXY) proxy: HttpClientProxy) {",
+            "\t\tsuper(proxy);",
+            "}",
+            "",
+            "\t@OperationContract({ uri: '${2:api}', method: OperationMethod.Get })",
+            "\t${3:getName}!: ServiceOperation<${4:void}, ${5:void}, ${6:void}>;",
+          "}" 
+        ]
+      },
+      
+      "bss.get": {
+        "prefix": "bss-get",
+        "description": "bss get",
+        "body": [
+        "@OperationContract({ uri: '${1:api}', method: OperationMethod.Get })",
+        "${2:getName}!: ServiceOperation<${3:void}, ${4:void}, ${5:void}>;"
+        ]
+      },
+      "bss.post": {
+        "prefix": "bss-post",
+        "description": "bss post",
+        "body": [
+            "@OperationContract({ uri: '${1:api}', method: OperationMethod.Post })",
+            "${2:postName}!: ServiceOperation<${3:void}, ${4:void}, ${5:void}>;"
+            ]
+      },    
+       "bss.put": {
+        "prefix": "bss-put",
+        "description": "bss put",
+        "body": [
+            "@OperationContract({ uri: '${1:api}', method: OperationMethod.Put })",
+            "${2:getName}!: ServiceOperation<${3:void}, ${4:void}, ${5:void}>;"
+            ]
+      },
+      "bss.delete": {
+        "prefix": "bss-delete",
+        "description": "bss delete",
+        "body": [
+            "@OperationContract({ uri: '${1:api}', method: OperationMethod.Delete })",
+            "${2:getName}!: ServiceOperation<${3:void}, ${4:void}, ${5:void}>;"
+            ]
+      }
+
+      
+}
